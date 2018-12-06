@@ -78,7 +78,7 @@ Decred的贡献者分布在许多国家：美国，巴西，斯洛文尼亚，�
 >* 提案建议设立 Decred Contractor Clearance (DCC) 为服务商作为对项目参与及贡献的条件。获取DCC必需要有 3个合格服务商／贡献者担保有相关工作需要的技能。相同的，撤掉服务商资格也只需要3个合格服务商／贡献者投票撤除。
 
 ## 关于作者 
-编译 ：@Guang
+编译 ：@Guang,@Bill
 
 [Medium](https://medium.com/@guang.dcr)<br/>
 Telegram: @GuangGuang<br/>
