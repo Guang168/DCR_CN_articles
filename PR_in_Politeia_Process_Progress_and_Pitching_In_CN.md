@@ -2,7 +2,7 @@
 # 在Politeia的公关：过程，发展及提案
 
 ![Photo by [SpaceX](https://unsplash.com/@spacex?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=medium&utm_medium=referral)](/img/PR_in_Politeia_Process_Progress_and_Pitching_In_CN/Img1.png)
-*Photo by [SpaceX](https://unsplash.com/@spacex?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=medium&utm_medium=referral)*
+*[SpaceX](https://unsplash.com/@spacex?utm_source=medium&utm_medium=referral) 在 [Unsplash](https://unsplash.com/?utm_source=medium&utm_medium=referral) 的照片*
 
 
 10月Decred达成了又一个里程碑：Decred的政策和预算提案系统Politeia上线啦。在第一个星期里，六个Decred提案被提出，引来了社区群体的积极辩论和投票。投票参与率超过了50％，这比我们在美国中期选举中看到的更高。在第一轮提案中，Decred社区绝大多数通过了一项[开放式研究项目](https://proposals.decred.org/proposals/c68bb790ba0843980bb9695de4628995e75e0d1f36c992951db49eca7b3b4bcd)，该项目将让原本不太可能找到资金的领域得到时间投入，以及一项关于[选票投票的术语变更提案](https://proposals.decred.org/proposals/522652954ea7998f3fca95b9c4ca8907820eb785877dcf7fba92307131818c75)。
@@ -163,3 +163,15 @@ Ditto和Decred已经通过批准的Politeia提案公开的同意了一系列工�
 Politeia有了个非常好的开始。讨论的质量和流程的演变，提案根据社区反馈的改进证明了项目的实施。对我来说，这就像莱特兄弟第一次经历升空一样，知道他们的梦想是可能实现的，而他们会改写历史。Politeia已经发布，它已经成功完成了第一阶段努力。我们已经确定了迭代和改进的方法这样可以与社区分享更多信息，以便他们做出高质量的决策。
 
 我对当前的Decred状态，事情的发展方向以及我们社区团结起来展示一种利益相关者拥有主权的新型货币的能力感到非常兴奋。它提供的功能将在未来几个月和几年内继续被构思，开发和释放。加入我们，帮助设计和实现这些想法。
+
+## 关于作者 
+原文 Dustin leFebvre 著：[https://medium.com/decred/pr-in-politeia-process-progress-and-pitching-in-d88771183dd4](https://medium.com/decred/pr-in-politeia-process-progress-and-pitching-in-d88771183dd4)</br>
+
+翻译 ：@Guang </br>
+[Medium](https://medium.com/@guang.dcr)</br>
+Telegram: @GuangGuang</br>
+Matrix: @guang:decred.org
+
+欢迎反馈至[Github](https://github.com/Guang168)或联系作者
+
+
