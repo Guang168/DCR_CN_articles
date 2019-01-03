@@ -6,7 +6,7 @@
 * [扫盲-Decred分票](https://github.com/Guang168/DCR_CN_articles/blob/master/Education-DecredSplitTicket.md)
 * [Decred通胀](https://github.com/Guang168/DCR_CN_articles/blob/master/Inflation_CN.md)
 * [如何参与Decred社区，成为贡献者／承包商](https://github.com/Guang168/DCR_CN_articles/blob/master/How_to_Get_Hired_as_a_Decred_Contractor_CN.md)
-* [在Politeia的公关：过程，发展及提案](https://github.com/Guang168/DCR_CN_articles/blob/master/PR_in_Politeia_Process_Progress_and_Pitching_In_CN.md)
+* [在Politeia的公关提案：过程，发展及提案](https://github.com/Guang168/DCR_CN_articles/blob/master/PR_in_Politeia_Process_Progress_and_Pitching_In_CN.md)
 
 
 
