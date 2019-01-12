@@ -8,10 +8,10 @@ _## What is SPV?_
 ## 什么是SPV？ 
 
 _Simple Payment Verification (SPV) allows the use of a Decred wallet without having to download the entire Decred blockchain. A wallet operating in SPV mode only needs to download full blocks containing transactions relevant to it (i.e. transactions involving the wallet’s addresses). In a typical case, this means downloading tens of megabytes, rather than multiple gigabytes. This reduces the wallet's hardware requirements and greatly reduces the initial load time for new wallets._
-简单支付验证（SPV）允许无需下载整个Decred区块链的情况下使用Decred钱包而。SPV模式下操作的钱包仅需要下载包含与其相关交易的完整块（即涉及钱包地址的交易）。在一般情况下，这意味着下载的是数十兆字节而不是数千兆字节。这大大减少了钱包的硬件要求和新钱包的初始加载时间。
+简单支付验证（SPV）允许无需下载整个Decred区块链的情况下使用Decred钱包。SPV模式下操作的钱包仅需要下载包含与其相关交易的完整块（即涉及钱包地址的交易）。在一般情况下，这意味着下载的是数十兆字节而不是数千兆字节。这大大减少了钱包的硬件要求和新钱包的初始加载时间。
 
 _SPV has been built directly into the dcrwallet CLI tool — what Decredition and other official wallets use behind the scenes — so all users of official wallets are able to enable SPV._
-SPV已直接内置于dcrwallet命令行界面中 - Decredition和其他官方钱包则在后台使用 - 因此所有官方钱包的用户都能够启用SPV。
+SPV已直接内置于dcrwallet命令行界面中 - Decredition和其他开发商官方钱包则在后台使用 - 因此所有官方钱包的用户都能够启用SPV。
 
 
 _## Why was SPV added to `dcrwallet`?_
@@ -25,7 +25,7 @@ _As a result of these decreased requirements, Decred wallets can operate on a wi
 由于这些需求的降低，Decred钱包可以在更广泛的设备上运行 - 特别是移动设备。智能手机和平板电脑通常受限于至少以下两个的其中一种限制 - 存储/下载容量或移动操作系统限制每个应用程序可以执行的后台工作量。这使得运行全节点非常不可行或几乎不可能。
 
 _Another benefit offered by SPV is an extreme reduction in the time required for a brand new wallet to become operational, offering a huge improvement to the user experience._
-SPV的另一个好处是可以大大减少全新钱包从设立到可以使用所需的时间，从而大大的改善了用户体验。
+SPV的另一个好处是可以大大减少全新钱包从创建到可以使用所需的时间，从而大大的改善了用户体验。
 
 _## How does SPV work?_
 ## SPV 到底怎么运作？
@@ -34,7 +34,7 @@ _At the start of every block added to the Decred blockchain is 180 bytes of data
 在Decred区块链中，每个区块的开头是称为[区块头](https://docs.decred.org/advanced/block-header-specifications/)的180字节的数据。区块头描述关于该区块的关键信息，包括区块的哈希值，二进制哈希树根“Merkle root”(即区块中所有交易哈希的总和)，以及由工作量证明矿工计算出来的随机数“nonce”。 另外也基于区块内所有交易为每个区块创建一个预设的过滤器。
 
 _When an SPV wallet initialises it will connect to the Decred network using peer-to-peer connections, and it will download the full set of headers and filters. It will then validate the header chain to ensure that the chain and its proof-of-work are valid. Once this is complete, the wallet will use the filters to locally identify which blocks contain owned transactions without uploading any private data to remote nodes. The wallet can then use the peer-to-peer network to download these blocks, scan them for relevant transactions and select these to update personal transaction history and balance. _
-当SPV钱包初始化时，它将使用P2P（peer-to-peer）连接到Decred网络并下载完整的区块头和过滤器。 然后它将验证区块头链以确保区块链及其工作量证明是合格有效的。完成后，钱包将使用过滤器在本地识别哪些区块包含所拥有的交易数据，而无需将任何私有数据上载到远程节点。然后钱包可以使用P2P网络下载这些区块，并扫描以查找相关交易然后选择这些以更新个人交易历史和余额信息。
+当SPV钱包初始化时，它将使用P2P（peer-to-peer）连接到Decred网络并下载完整的区块头和过滤器。 然后它将验证区块头链以确保区块链及其工作量证明是正确的。完成上述工作后，钱包将使用过滤器在本地识别哪些区块包含所拥有的交易数据，而无需将任何私有数据上载到远程节点。然后钱包可以使用P2P网络下载这些区块，并扫描以查找相关交易然后选取这些交易信息以更新个人交易历史和余额信息。
 
 _## How is this different from a "light" wallet?_
 ## 这和轻钱包有什么区别？
@@ -44,7 +44,7 @@ _"Light" wallets such as [Exodus](https://www.exodus.io/) or [Atomic](https://at
 
 _- Light wallets depend on a remote service to watch owned addresses and provide notifications when transactions are received by the addresses. Notifications could be missed or incorrect._
 
-* 轻钱包依靠远程服务来监视属于用户的地址，并在地址收到交易时提供通知。 通知可能会被遗漏或是错误的。
+* 轻钱包依靠远程服务来监视属于用户的地址，并在地址收到交易时提供通知。 通知可能会被遗漏或不正确。
 
 _- Users will often be required to upload an extended public key to the central server so it is aware of all of owned addresses, potentially compromising the users privacy._
 
@@ -55,7 +55,7 @@ _- Light wallets do not validate the information they receive by checking the bl
 * 轻钱包不会通过直接检查区块链来验证他们所收到的信息 - 他们必须盲目地信任中央服务器所提供的信息。
 
 _These concerns do not apply to SPV wallets because they connect directly to the decentralised, peer-to-peer Decred network. They upload no private data to remote nodes and they discover their own transactions by inspecting the blockchain directly._
-这些问题在SPV钱包并不存在，这是因为它们是直接连接到去中心化的的P2P Decred网络的。他们不需要将私有数据上传到远程节点，而是通过直接查找区块链来发现自己的交易信息。
+这些问题在SPV钱包上并不存在，这是因为它们是直接连接到去中心化的的P2P Decred网络的。他们不需要将私有数据上传到远程节点，而是通过直接查找区块链来发现自己的交易信息。
 
 _## Are there any disadvantages?_
 ## 它的缺点是什么？
@@ -66,12 +66,12 @@ _- SPV does not support voting wallets. Voting wallets have the responsibility t
 
 _- SPV wallets only download blocks which have transactions related to their owned addresses, which could potentially reveal more information about the wallet than if it downloaded every single block. This only presents a very minor decrease in privacy, but it is a decrease nonetheless. This can be mitigated by downloading blocks from multiple peers so no single peer is able to see the full list of blocks downloaded by a wallet. Even if a passive observer on the network is able to see which blocks are downloaded by a wallet, they are not able to identify which transactions in those blocks are relevant._
 
-* SPV钱包只下载与其拥有的地址相关交易的区块。跟下载全部区块相比，这可能会揭示更多有关钱包的信息。虽然这里讨论的隐私性降低是非常微小的，但无可否认确实是降低了。
+* SPV钱包只下载与其拥有的地址相关交易的区块。跟下载全部区块相比，这可能会泄露更多有关钱包的信息。虽然这里讨论的隐私性降低是非常微小的，但无可否认确实是降低了。
 这个隐私问题可以通过从多个连接节点下载块来减轻，如此就没有单个连接节点能够看到钱包下载的完整区块列表。即使网络上的被动观察者能够看到钱包下载了哪些区块，他们也无法识别这些区块中的哪些交易是相关的。
 
 _- Wallets operating in SPV mode are only able to validate the block headers they download and not the filters. This makes a "false-negative" attack possible, whereby a malicious peer that knows a wallet is waiting for a particular transaction could send the wallet a fake filter which does not include the transaction, resulting in the wallet not downloading the block and so not becoming aware of the transactions existence. This transaction would still be visible to all fully validating nodes and wallets, and it will still appear in the [block explorer](../getting-started/using-the-block-explorer.md). One way to prevent this vulnerability is to add the hash of the filter into the part of the block header that is PoW validated, enabling SPV wallets to easily check the validity of the filters without having to download their blocks. A proposal to make this change has [already been suggested](https://github.com/decred/dcrd/issues/971), however a hardfork will be required to make the required change to the block header format.  A "false-positive" scenario is not possible. If a malicious node provides a fake filter which includes a non-existent transaction, the wallet will simply download the full block, compare it to the filter and discover that the filter is not genuine._
 
-* 在SPV模式下运行的钱包只能验证他们下载的区块头而无法验证过滤器。这让使坏者可能发布“漏报（false-negative)”漏洞攻击，比如恶意节点知道某钱包正在等待特定交易，可以向钱包发送不包括某交易的假过滤器，导致钱包不下载块而不意识到交易的存在。所有全节点和钱包仍然可以看到此项交易，它仍然会出现在[区块浏览器](https://docs.decred.org/getting-started/using-the-block-explorer/)中。防止此漏洞的其中一种方法是将过滤器的哈希值添加到PoW验证的区块头部分，使SPV钱包在未下载区块就能够轻松验证过滤器的有效性。这项更改建议已经在这里被[提出](https://github.com/decred/dcrd/issues/971)，但是进行区块头格式的更改需要进行一个区块链的硬分叉。“错报(false-positive)”情景是不可能的。如果恶意节点提供包含不存在的交易的假过滤器，钱包将简单地下载完整区块，将其与过滤器进行比较并发现过滤器是不正确的。
+* 在SPV模式下运行的钱包只能验证他们下载的区块头而无法验证过滤器。这可能会存在“漏报（false-negative)”攻击，比如恶意节点知道某钱包正在等待特定交易，可以向钱包发送不包括某交易的假过滤器，导致钱包不会下载这个区块而无法识别交易的存在。所有全节点和钱包仍然可以看到此项交易，它仍然会出现在[区块浏览器](https://docs.decred.org/getting-started/using-the-block-explorer/)中。防止此漏洞的其中一种方法是将过滤器的哈希值添加到PoW验证的区块头部分，使SPV钱包在未下载区块就能够轻松验证过滤器的有效性。这项更改建议已经在这里被[提出](https://github.com/decred/dcrd/issues/971)，但是进行区块头格式的更改需要进行一个区块链的硬分叉。“误报(false-positive)”情景是不可能的。如果恶意节点提供包含不存在的交易的假过滤器，钱包将简单地下载完整区块，将其与过滤器进行比较并会发现这个过滤器是不正确的。
 
 
 _## How do I use SPV?_
