@@ -92,7 +92,7 @@ _If Decrediton is being started for the first time, the file `config.json` needs
 _If Decrediton is already synced with the network it is possible to change to SPV mode through the GUI. Open a wallet, and locate the "SPV" option in the setting tab. There is also a "SPV Connect" setting on this tab, which will allow you to specify the IP address of a full node you wish to sync from._
 如果Decrediton已与网络同步，则可以通过GUI更改为SPV模式。打开钱包，然后在设置选项卡中找到“SPV”选项。此选项卡上还有一个“SPV Connect”设置，允许您通过指定的全节点IP地址同步。
 
----
+------
 
 _# SPV: DCR vs BTC_
 # DCR与BTC的SPV实现对比总结
@@ -100,24 +100,45 @@ _# SPV: DCR vs BTC_
 _### Decred implementation_
 ### Decred 实现
 
+_Client-side compact filters proposed by lightning labs developers and contributed to by several bitcoin core devs. Also updates to bips 157 158 - changes we are hoping to pull in later._
 
-* Client-side compact filters proposed by lightning labs developers and contributed to by several bitcoin core devs. Also updates to bips 157 158 - changes we are hoping to pull in later.
-* The wallet client downloads the full set of filters, and locally matches which blocks contain owned transactions without uploading any private data. 
-* Removes need to trust the remote node
-* Not revealing your filter makes it harder for observers to identify your addresses/tx/coins
+* 客户端紧凑过滤器由闪电实验室(lightning labs)提案并提交给了bitcoin core， 该提案在BIP157， BIP158里被详细阐述。
 
+_The wallet client downloads the full set of filters, and locally matches which blocks contain owned transactions without uploading any private data._
+
+* 客户端从全节点(full node)下载各种过滤器， 然后在本地比较哪些块包含自己期望的交易。在此过程中客户端不向服务器端提交任何隐私数据。
+
+_Removes need to trust the remote node_
+
+* 客户端不需要信任服务器端。
+
+_Not revealing your filter makes it harder for observers to identify your addresses/tx/coins_
+
+* 因为客户端不向服务端发送任何隐私数据， 因此窃听者或者恶意的服务器端不知道客户端在查询哪些交易。
 
 _### Bitcoin implementation_
 ### Bitcoin 实现
 
-* Server-side matching with bloom filters. The filter contains hashes for all of your addresses and scripts. Uploaded to a bitcoin node which has a full copy of the blockchain, it selects all transactions which match the filter and sends them back. 
-* Makes it possible for a passive observer to infer which addresses you are watching, and therefore which transactions and which coins are yours.
-* Requests for filters have to be updated and handled differently for different clients, which can be expensive for the node serving the requests. Opens a DoS attack window
+_Server-side matching with bloom filters. The filter contains hashes for all of your addresses and scripts. Uploaded to a bitcoin node which has a full copy of the blockchain, it selects all transactions which match the filter and sends them back._
+
+* 在服务器端使用布隆过滤器(bloom filter)，布隆过滤器会对会生成所有的txid， address的hash信息。客户端提交自己的布隆过滤器到服务器，当客户端的布隆过滤器匹配服务器端的布隆过滤器， 则服务器会把该block发送回客户端。
+
+_Makes it possible for a passive observer to infer which addresses you are watching, and therefore which transactions and which coins are yours._
+
+* 允许窃听者发现客户端期望获取哪些地址的交易，包括该交易的更详细信息，例如交易ID或者金额。
+
+_ Requests for filters have to be updated and handled differently for different clients, which can be expensive for the node serving the requests. Opens a DoS attack window;_
+
+* 因为每个客户端发送的布隆过滤器都不一样，如果同时服务器接收到非常多的过滤请求， 可能会对服务器造成DOS(拒绝服务式攻击).
 
 _#### Bloom filters vs GCS filters_
 #### Bloom 过滤器 和 GCS 过滤器 的对比
 
-* bloom filters use more network traffic.
+decred通过使用GCS(Golomb coded sets)的方式， 将块中包括的每一个txid/address压缩为一个20bits(大约3字节)的数据，生成一个块对应的GCS，类似于merkle root， 该GCS的压缩比大概是1%， 也就是说一个1M的块， 经过GCS压缩后，生成的GCS大约10K。简单来说，如果decred达到bitcoin当前的交易规模的话(大约3000笔交易每区块)，考虑到decred使用了schnorr signature和2分钟的出块时间， decred生成的GCS数据只大概是3k不到。 也就是说spv客户端只要每两分钟接受一个大约3k的数据， 就可以达到类似full node的隐私性，并且极大的提升了用户体验。 
+
+目前服务器生成的GCS如果向merkle root一样记录到block header中的话， 需要一次硬分叉， 这样就能防止服务器给客户端发送恶意的GCS了。 关于本次硬分叉的讨论你参看: https://github.com/decred/dcrd/issues/971
+
+简单来说： GCS给予了spv等同于全节点的隐私性，同时又带来了轻量级客户端的用户体验。并且gcs随着交易数量的极具增大， 产生的数据也非常小，非常具有弹性。
 
 # 关于作者
 
