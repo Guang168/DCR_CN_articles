@@ -85,9 +85,12 @@ decred通过使用GCS(Golomb coded sets)的方式， 将块中包括的每一个
 # 关于作者
 
 简单支付验证：原文参照[Decred Documentation](https://docs.decred.org/)中[SPV](https://docs.decred.org/wallets/spv/#what-is-spv)页面。
+
 DCR与BTC的SPV对比：原文参照[SPV: DCR vs BTC](https://github.com/decred/dcrdocs/issues/727)
 
-翻译 ：@Dante，@Guang，@Hanson </br>
+SPV在 DecredAssembly的详细介绍 ： [Decred Assembly 第21集](https://youtu.be/hJ2IKjdB6n4)
+
+翻译 ：@Dante，@Guang </br>
 [Medium](https://medium.com/@guang.dcr)</br>
 Telegram: @GuangGuang</br>
 Matrix: @guang:decred.org
