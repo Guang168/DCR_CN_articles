@@ -78,6 +78,10 @@ SPV的另一个好处是可以大大减少全新钱包从创建到可以使用�
 
 * bloom 过滤器需要更多的网络流量。
 
+* 目前服务器生成的GCS如果像二进制哈希树根(merkle root)一样记录到区块头(block header)中的话，需要进行一次硬分叉，这样就能防止服务器给客户端发送恶意的GCS了。 关于本次硬分叉的讨论你参看: https://github.com/decred/dcrd/issues/971
+
+简单来说： GCS给予了spv等同于全节点的隐私性，同时又带来了轻量级客户端的用户体验。并且gcs随着交易数量的极具增大， 产生的数据也非常小，非常具有弹性。
+
 # 关于作者
 
 简单支付验证：原文参照[Decred Documentation](https://docs.decred.org/)中[SPV](https://docs.decred.org/wallets/spv/#what-is-spv)页面。
