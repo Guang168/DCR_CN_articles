@@ -12,6 +12,10 @@ These are currently managed with Transifex.
 
 For interested volunteers please sign up for a transifex account, and refer below guide. 
 
+**Decred Project is currently not paying directly for community translations for the above mentioned reasons and only accepting reviews from known community members.**
+
+## Transifex Guide
+
 ![ ](img/Translation_Guide/TRANSIFEX.001.png)
 ![ ](img/Translation_Guide/TRANSIFEX.002.png)
 ![ ](img/Translation_Guide/TRANSIFEX.003.png)
